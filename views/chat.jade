@@ -8,21 +8,19 @@ block append head
   script(src="/javascripts/chat.js")
  
 block content
-  h1 Chat
- 
-  label(for="userName") User name: (Hit Enter) 
-  input#userName(type="text", size="30")
-  span#feedback
- 
-  p
-  div#msgWindow.shadow
- 
-  p
-  div
-    br
-    table
-      tr
-        td
-          select#users(style="width: 100px")
-        td
-          input#msg(type="text", style="width: 600px", disabled="true")
+
+  div#chat.shadow
+    div#usuario
+      label(for="userName") Usuario:
+      input#userName(type="text", size="30")
+      input#enter(type="button", value="entrar")
+      span#feedback
+   
+    div#mensajes
+      div#msgWindow
+      div#usuarios
+        select#users(style="width: 100px",size="15")
+    div#enviar
+      input#msg(type="text", style="width: 400px", disabled="true")
+      input#enviar(type="button", value="enviar")
+

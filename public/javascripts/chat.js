@@ -22,12 +22,14 @@ function appendNewMessage(msg) {
  
 function appendNewUser(uName, notify) {
   $('select#users').append($('<option></option>').val(uName).html(uName));
+  $('select#listaUsuarios').append($('<option></option>').val(uName).html(uName));
   if (notify && (myUserName !== uName) && (myUserName !== 'All'))
     $('span#msgWindow').append("<span class='adminMsg'>==>" + uName + " just joined <==<br/>")
 }
  
 function handleUserLeft(msg) {
     $("select#users option[value='" + msg.userName + "']").remove();
+    $("select#listaUsuarios option[value='" + msg.userName + "']").remove();
 }
  
 socket = io.connect("http://localhost:3000");
@@ -79,7 +81,7 @@ $(function() {
   });
  
   socket.on('welcome', function(msg) {
-    setFeedback("<span style='color: green'> Username available. You can begin chatting.</span>");
+    setFeedback("<span style='color: green'> Bienvenido.</span>");
     setCurrentUsers(msg.currentUsers)
     enableMsgInput(true);
     enableUsernameField(false);
@@ -99,6 +101,10 @@ $(function() {
           e.stopped = true;
           e.preventDefault();
       }
+  });
+
+  $('input#enter').click(function() {
+    setUsername();
   });
    
   $('input#msg').keypress(function(e) {

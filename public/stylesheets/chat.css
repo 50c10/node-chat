@@ -1,9 +1,23 @@
+#chat {
+  width: 550px;
+  height: 300px;
+}
+
+#enviar {
+  padding-top: 5px;
+}
 #msgWindow {
-  white-space: pre;
-  overflow-y: auto;
-  overflow-x: none;
-  width: 700px;
-  height: 550px;
+  float : left;
+  width: 400px;
+  height: 250px;
+  border: 1px black solid;
+}
+
+#usuarios {
+  float: left;
+  width: 100px;
+  height: 250px;
+  padding-left: 5px;
 }
  
 .shadow {
@@ -18,10 +32,12 @@
 }
  
 .privMsg {
+  color: blue;
   font-style:italic;
 }
  
 .adminMsg {
+  color:red;
   font-face: "verdana, helvetica";
   font-size: 8;
 }
